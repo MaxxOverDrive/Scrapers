@@ -1,0 +1,30 @@
+.manufactListItem {
+  list-style-type: none;
+}
+.infoList {
+
+}
+
+.competitorListItem {
+  list-style-type: none;
+}
+#page_title {
+  text-align: center;
+}
+
+#infoDisplay {
+  width: 100%;
+  height: 50vh;
+}
+
+#manufactListDiv {
+  border: 1px solid black;
+  text-align: center;
+  color: blue;
+}
+
+#competitorListDiv {
+  border: 1px solid black;
+  text-align: center;
+  color: blue;
+}

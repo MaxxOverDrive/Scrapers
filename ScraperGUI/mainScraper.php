@@ -1,8 +1,5 @@
 <?php
 
-  include("simple_html_dom.php");
-  $html = new simple_html_dom();
-
   //LOOP THROUGH LIST OF MANUFACTURE NAME VARIABLES
   $manufactNameTemp1 = "Little Giant";
   $manufactName1 = str_replace(' ', '%20', $manufactNameTemp1);
@@ -12,30 +9,9 @@
   $t = 0;
 
   for($m = 1; $m <= COUNT($manufactArray); $m++) {
-    //LOOPING THE NUMBER OF PAGES THE COMPETITOR HAS OF THAT MANUFATCURER
-    //WORK ON FUNCTION TO FIND NUMBER OF PAGES ON COMPETITOR SITE
-    for($p = 1;$p < 5; $p++) {
       //LOOP THROUGH COMPETITOR URLS BY MANUFACTURER
-      $url1 = "https://www.custommhs.com/index.php?route=product/search&keyword=.$manufactName[$m].=.$p";
-      $url2 = "https://www.sodyinc.com/index.php?main_page=advanced_search_result&search_in_description=1&keyword=.$manufactName[$m].&page=.$p";
-      $urlArray = array($url1, $url2);
+      include('functions.php');
 
-      $ch = curl_init();
-
-      for($u = 0; $u <= COUNT($urlArray); $u++) {
-        curl_setopt($ch, CURLOPT_URL, $urlArray[$u]);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-
-        $result = curl_exec($ch);
-
-        $metaReplace = preg_replace('/<meta[^*]>/', '', $result);
-        $linkReplace = preg_replace('/<link[^*]>/', '', $metaReplace);
-
-        file_put_contents(str_replace('%20', '', $manufactName.$m.'CompetitorScrape.html'), $linkReplace, FILE_APPEND | LOCK_EX);
-      }
-
-    }//PAGE LOOP
     $t++;
   }//MANUFACTUR LOOP
 
