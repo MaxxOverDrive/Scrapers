@@ -14,7 +14,7 @@
 
 	        <div class="col-md-9">
 
-						<?php include('conn_new_db_form.php'); ?>
+						<?php include('new_db_conn_form.php'); ?>
 
 						<?php include('new_data_forms.php'); ?>
 
