@@ -1,9 +1,9 @@
 <?php
 
-$db_host = "127.0.0.1";
-$db_username = "root";
-$db_pass = "mf!Developer1";
-$db_name = "morse";
+$db_host = "";
+$db_username = "";
+$db_pass = "";
+$db_name = "";
 
 $conn = mysqli_connect("$db_host", "$db_username", "$db_pass", "$db_name");
 
@@ -22,5 +22,5 @@ $conn = mysqli_connect("$db_host", "$db_username", "$db_pass", "$db_name");
       echo "NO TIITIES ON THE BACON!"
     }
 
-    
+
  ?>
