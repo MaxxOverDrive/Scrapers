@@ -69,8 +69,8 @@
 								$newURLArray = array();
 								if(isset($_POST["submitNewURL"])) {
 								  $newURLArray[] = $_POST["newURL"];
-								/*$cookie_name("newURL");
-									$cookie_value("submitNewURL");
+									/*$cookie_name = ("newURL");
+									$cookie_value = ("submitNewURL");
 									setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");*/
 								}
 								for($u = 0; $u <= COUNT($newURLArray); $u++) { ?>

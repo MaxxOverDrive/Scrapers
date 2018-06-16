@@ -2,10 +2,10 @@
 //ON CLICK APPEND VALUES ONTO ARRAYS
 $manufacturerArray = array();
 $competitorURLArray  = array();
-$tableMatch = '/<table[^>]*>(.*?)<\/table>/';
-$tbRowMatch = array();
-$tdMatch = array();
-$linkMatch = array();
+$tableMatch = '/<table[^>]*>(?:.|\n)*<\/table>/';
+$tbRowMatch = '/<tr[^>]*>(?:.|\n)*<\/tr>/';
+$tdMatch = '/<td[^>]*>(?:.|\n)*<\/td>/';
+$linkMatch = '/<a[^>]*>(?:.|\n)*?<\/a>/';
 $urlMatch = array();
 $listMatch = array();
 $allMatch = '/<body[^>]*>(.*?)<\/body>/';
