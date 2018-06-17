@@ -2,6 +2,14 @@
   list-style-type: none;
 }
 
+#new_url_form {
+  margin-bottom: 2vh;
+}
+
+#match_list {
+  margin-bottom: 2vh;
+}
+
 #info_display_box {
   height: 50vh;
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Matty's CMS!</title>
+	<title>Scraper GUI!</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,26 +12,31 @@
       <div class="row">
 				<div class="col-md-12">
 
-	        <div class="col-md-9">
+	        <div class="col-md-3">
 
 						<?php include('new_db_conn_form.php'); ?>
 
-						<?php include('new_data_forms.php'); ?>
-
-						<?php include('text_box_form.php'); ?>
-
-
 					</div><!--col-9 top box-->
 
-					<div class="col-md-3"><!--INFO DISPLAY BOX-->
+					<div class="col-md-6"><!--INFO DISPLAY BOX-->
 
-						<?php include('choose_database_form.php'); ?>
+						<?php include('new_data_forms.php'); ?>
+
+
+		      </div><!--INFO DISPLAY BOX-->
+
+					<div class="col-md-3">
 
 						<?php include('choose_websites_form.php'); ?>
 
-						<?php include('table_search_form.php'); ?>
+					</div>
 
-		      </div><!--INFO DISPLAY BOX-->
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<?php include('text_box_form.php'); ?>
 
 				</div>
 			</div>
