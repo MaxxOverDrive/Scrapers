@@ -18,14 +18,14 @@
 
 					</div><!--col-9 top box-->
 
-					<div class="col-md-6"><!--INFO DISPLAY BOX-->
+					<div class="col-md-5"><!--INFO DISPLAY BOX-->
 
 						<?php include('new_data_forms.php'); ?>
 
 
 		      </div><!--INFO DISPLAY BOX-->
 
-					<div class="col-md-3">
+					<div class="col-md-4">
 
 						<?php include('choose_websites_form.php'); ?>
 
