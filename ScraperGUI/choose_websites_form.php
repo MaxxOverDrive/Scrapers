@@ -10,7 +10,7 @@
 
     <div class="form-group">
       <div class="col-md-12 text-center">
-        <button class="btn btn-success" type="submit" name="submitNewURL">Search</button>
+        <button class="btn btn-success" type="submit" name="submitNewURL">New URL</button>
       </div>
     </div>
 
@@ -29,23 +29,30 @@
 <div style="border: 1px solid black;" class="col-md-12 text-center">
   <form action="index.php" method="POST">
 
-<?php
+    <?php
 
-  $urls = explode('\n', file_get_contents('URLs/urls.txt'));
-  $url =  preg_replace('/^https:\/\/|(www\.)?|^http:\/\/|(www\.)?/', '', $urls);//PREG_REPLACE FUNTION ONLY WORKS WITH FIRST CHECKBOX
+      $urls = explode('\n', file_get_contents('URLs/urls.txt'));
 
-    for($u = 0; $u < COUNT($url); $u++) { ?>
-        <div class="col-md-12"><!--CHECKBOX -->
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="url" value="<?php echo $url[$u]; ?>" id="<?php echo $url[$u]; ?>">
-            <label class="form-check-label" for="<?php echo $url[$u]; ?>">
-              <?php
-                echo  $url[$u];
-              ?>
-            </label>
-          </div>
-        </div>
-<?php  } ?>
+        for($u = 0; $u < COUNT($urls); $u++) { ?>
+
+            <div class="col-md-12"><!--CHECKBOX -->
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="url" value="<?php echo $urls[$u]; ?>" id="<?php echo $urls[$u]; ?>">
+                <label class="form-check-label" for="<?php echo $urls[$u]; ?>">
+                  <?php
+                    echo $urls[$u];
+                  ?>
+                </label>
+              </div>
+            </div>
+
+    <?php } ?>
+
+            <div class="form-group">
+              <div class="col-md-12 text-center">
+                <button class="btn btn-success" type="submit" name="submitURL">Search</button>
+              </div>
+            </div>
 
   </form>
 </div>

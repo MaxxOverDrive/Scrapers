@@ -1,21 +1,19 @@
 <?php
-/*
-$page_match = $_POST['page_match'];
+  if(isset($_POST['url'])) {
 
-  $url = "https://www.custommhs.com/";
+      $url = $_POST['url'];
 
-  $ch = curl_init();
+      $ch = curl_init();
 
-  curl_setopt($ch, CURLOPT_URL, $url);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-  $result = curl_exec($ch);
+      $result = curl_exec($ch);
 
+      curl_close($ch);
+  }
 
-
-  curl_close($ch);
-*/
 ?>
 
 <div id="match_list" class="col-md-12">
@@ -77,52 +75,53 @@ $page_match = $_POST['page_match'];
   </div>
 </div>
 <?php
-/*
-  if(isset($_POST['page_match'])) {
 
-    switch('page_match') {
+  if(isset($_POST['page_match'])) {
+    $page_match = $_POST['page_match'];
+
+    switch($page_match) {
 
       case Tables:
-        preg_match_all('/<table[^>]*>(?:.|\n)*<\/table>/', $result, $page_matches);
+        preg_match_all('/<table[^>]*>(?:.|\n)*<\/table>/', $result, $page_match);
 
       break;
 
       case Table_Rows:
-        preg_match_all('/<tr[^>]*>(?:.|\n)*<\/tr>/', $result, $page_matches);
+        preg_match_all('/<tr[^>]*>(?:.|\n)*<\/tr>/', $result, $page_match);
 
       break;
 
       case Table_Data:
-        preg_match_all('/<td[^>]*>(?:.|\n)*<\/td>/', $result, $page_matches);
+        preg_match_all('/<td[^>]*>(?:.|\n)*<\/td>/', $result, $page_match);
 
       break;
 
       case Images:
-        preg_match_all('/<img[^>]*>/', $result, $page_matches);
+        preg_match_all('/<img[^>]*>/', $result, $page_match);
 
       break;
 
       case Links:
-        preg_match_all('/<a[^>]*>(?:.|\n)*?<\/a>/', $result, $page_matches);
+        preg_match_all('/<a[^>]*>(?:.|\n)*?<\/a>/', $result, $page_match);
 
       break;
 
       case List_Items_match:
-        preg_match_all('/<li[^>]*>(.*?)<\/li>/', $result, $page_matches);
+        preg_match_all('/<li[^>]*>(.*?)<\/li>/', $result, $page_match);
 
       break;
 
       default:
-          preg_match_all('/<body[^>]*>(.*?)<\/body>/', $result, $page_matches);
+          preg_match_all('/<body[^>]*>(.*?)<\/body>/', $result, $page_match);
 
     }
   }
 
-  $num_matches = COUNT($page_matches[0]);
+  $num_matches = COUNT($page_match[0]);
 
   for($i = 0; $i < $num_matches; $i++) {
     $page_match[] = $num_matches[$i];
-  }*/
+  }
   ?>
 
   <div class="row">
