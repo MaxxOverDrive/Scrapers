@@ -1,24 +1,26 @@
 <?php
-  if(isset($_POST['url'])) {
+  /*if(isset($_POST['url'])) {
 
-      $url = $_POST['url'];
 
-      $ch = curl_init();
+  }*/
+  /*$url = $_POST['url'];
 
-      curl_setopt($ch, CURLOPT_URL, $url);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+  $ch = curl_init();
 
-      $result = curl_exec($ch);
+  curl_setopt($ch, CURLOPT_URL, 'http://www.espn.com/');
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-      curl_close($ch);
-  }
+  $result = curl_exec($ch);
 
+    preg_match_all('/<img[^>]*>/', $result, $page_match);
+
+  curl_close($ch);*/
 ?>
 
 <div id="match_list" class="col-md-12">
   <div class="row"><!--TABLE SEARCHES -->
-    <div class="col-md-4 col-md-offset-2">
+    <div class="col-md-4">
       <form action="index.php" method="POST">
 
         <!--LIST OF THINGS TO MATCH -->
@@ -46,6 +48,59 @@
 
       </form>
     </div>
+
+    <div class="col-md-4">
+      <form action="index.php" method="POST">
+        <!--CHANGE INPUT TO BINARY OR HEXDECIMAL -->
+        <div class="form-group">
+          <div class="col-md-5 text-center">
+            <h4 for="bin_text">Decode Type</h4>
+            <select class="form-control" name="decode_type">
+              <option>Decode Type</option>
+              <option>Binary</option>
+              <option>Hexidecimal</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-7 text-center">
+            <h4 for="bin_text">Decode String</h4>
+            <input class="form-control" type="text" name="user_text">;
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-12 text-center">
+            <button class="btn btn-success" type="submit" name="user_text_submit">Decode</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <?php
+      if(isset($_POST['user_text_submit']) && !empty($_POST['user_text'])) {
+
+        if($_POST['decode_type'] == "Binary") {
+          //ONLY WORKS WITH 8 CHARACTERS OR LESS
+          $bin_text = unpack('H*', $_POST['user_text']);
+          $result = base_convert($bin_text[1], 16, 2);
+          $bin_decode_string = pack('H*', base_convert(base_convert($bin_text[1], 16, 2), 2, 16));
+        }
+        elseif($_POST['decode_type'] == "Hexidecimal") {
+          $hex_text = $_POST['user_text'];
+          $result = bin2hex($hex_text);
+          $hex_decode_string = pack("H*",bin2hex($hex_text));
+        }
+        else {
+          echo "Please select a decode type";
+        }
+
+      }
+
+    ?>
+
+
 
 
     <div class="col-md-4">
@@ -76,7 +131,7 @@
 </div>
 <?php
 
-  if(isset($_POST['page_match'])) {
+  /*if(isset($_POST['page_match'])) {
     $page_match = $_POST['page_match'];
 
     switch($page_match) {
@@ -121,11 +176,11 @@
 
   for($i = 0; $i < $num_matches; $i++) {
     $page_match[] = $num_matches[$i];
-  }
+  }*/
   ?>
 
   <div class="row">
     <div class="form-group col-md-12">
-      <textarea id="info_display_box" class="form-control" rows="5" type="textarea" name="displayInfo"><?php echo $page_match; ?></textarea><!-- DISPLAY INFO RESULTS -->
+      <textarea id="info_display_box" class="form-control" rows="5" type="textarea" name="displayInfo"><?php print_r($result); ?></textarea><!-- DISPLAY INFO RESULTS -->
     </div>
   </div>

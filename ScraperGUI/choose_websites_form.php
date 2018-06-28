@@ -19,10 +19,10 @@
 
 
     <?php
-      if(isset($_POST['newURL'])) {
+      if(isset($_POST['submitNewURL'])) {
         $newURL_temp = $_POST['newURL'];
         $newURL = $newURL_temp.PHP_EOL;
-        file_put_contents('URLs/urls.txt', $newURL, FILE_APPEND | LOCK_EX);
+        file_put_contents('URLs/urls.html', $newURL, FILE_APPEND | LOCK_EX);
       }
        ?>
 
@@ -31,7 +31,7 @@
 
     <?php
 
-      $urls = explode('\n', file_get_contents('URLs/urls.txt'));
+      $urls = explode('<br />', file_get_contents('URLs/urls.html'));
 
         for($u = 0; $u < COUNT($urls); $u++) { ?>
 

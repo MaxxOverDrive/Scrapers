@@ -19,34 +19,44 @@
 
      <div class="form-group">
        <div class="col-sm-12">
-         <input type="text" class="form-control" id="db_host" placeholder="Enter database host">
+         <input type="text" class="form-control" name="db_host" placeholder="Enter database host">
        </div>
      </div>
 
      <div class="form-group">
        <div class="col-sm-12">
-         <input type="text" class="form-control" id="db_username" placeholder="Enter username">
+         <input type="text" class="form-control" name="db_username" placeholder="Enter username">
        </div>
      </div>
 
      <div class="form-group">
        <div class="col-sm-12">
-         <input type="password" class="form-control" id="db_pass" placeholder="Enter password">
+         <input type="password" class="form-control" name="db_pass" placeholder="Enter password">
        </div>
      </div>
 
      <div class="form-group">
        <div class="col-sm-12">
-         <input type="text" class="form-control" id="db_name" placeholder="Enter database name">
+         <input type="text" class="form-control" name="db_name" placeholder="Enter database name">
        </div>
      </div>
 
      <div class="form-group">
        <div class="col-sm-12 text-center">
-         <button type="submit" class="btn btn-info" value="new_db_submit">Connect</button>
+         <button type="submit" class="btn btn-info" name="new_db_submit">Connect</button>
        </div>
      </div>
    </form>
 
 
  </div>
+ <?php
+
+  if(isset($_POST["new_db_submit"])) {
+    $db_host = $_POST['db_host'];
+    $db_username = $_POST['db_username'];
+    $db_pass = $_POST['db_pass'];
+    $db_name = $_POST['db_name'];
+    file_put_contents();
+  }
+?>
