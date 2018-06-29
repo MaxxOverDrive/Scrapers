@@ -13,14 +13,18 @@
         </div>
       </div>
 
+      <?php
+        $db_table_Var = $GLOBALS['db_table_Result'];
+      ?>
+
       <div class="form-group">
         <div class="col-md-12 text-center">
           <h4 for="database_action_dropdown">Database Tables</h4>
           <select class="form-control" id="database_action_dropdown"><!-- FIGUR OUT NAME, VALUE & ID -->
-            <option>Database Table 1</option>
-            <option>Database Table 2</option>
-            <option>Database Table 3</option>
-            <option>Database Table 4</option>
+            <?php
+              while($db_table_Row = mysqli_fetch_assoc($db_table_Var)) { ?>
+                <option><?php echo $db_table_Row['TABLES']; ?></option>
+        <?php  }  ?>
           </select>
         </div>
       </div>
