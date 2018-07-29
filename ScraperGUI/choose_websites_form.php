@@ -1,4 +1,5 @@
 <div id="new_url_form" class="col-md-12">
+
   <form action="index.php" method="POST">
 
     <div class="form-group">
@@ -15,6 +16,7 @@
     </div>
 
   </form>
+  
 </div>
 
 
@@ -31,16 +33,27 @@
 
     <?php
 
-      $urls = explode('<br />', file_get_contents('URLs/urls.html'));
+      $url_info = fopen("URLs/urls.html", "r");
+        if ($url_info) {
+            while (($line = fgets($url_info)) !== false) {
+                $url_array[] = trim($line);
+            }
 
-        for($u = 0; $u < COUNT($urls); $u++) { ?>
+            fclose($url_info);
+        }
+        else {
+            echo "Something Happened!";
+        }
+
+
+        for($u = 0; $u < COUNT($url_array); $u++) { ?>
 
             <div class="col-md-12"><!--CHECKBOX -->
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="url" value="<?php echo $urls[$u]; ?>" id="<?php echo $urls[$u]; ?>">
-                <label class="form-check-label" for="<?php echo $urls[$u]; ?>">
+                <input class="form-check-input" type="checkbox" name="url" value="<?php echo $url_array[$u]; ?>" id="<?php echo $url_array[$u]; ?>">
+                <label class="form-check-label" for="<?php echo $url_array[$u]; ?>">
                   <?php
-                    echo $urls[$u];
+                    echo $url_array[$u];
                   ?>
                 </label>
               </div>

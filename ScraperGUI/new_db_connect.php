@@ -1,8 +1,4 @@
 <?php
-//108.167.172.156
-//maxxsecu_Max
-//Sealteam7$
-//maxxsecu_cmsNew
 
 $db_host = $_POST['db_host'];
 $db_username = $_POST['db_username'];
@@ -34,6 +30,6 @@ $conn = mysqli_connect("$db_host", "$db_username", "$db_pass", "$db_name");
     }
 
   }
-  
+
 
  ?>

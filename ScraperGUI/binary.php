@@ -51,4 +51,11 @@ $str = "\n";
 if (ord($str) == 10) {
     echo "The first character of \$str is a line feed.\n";
 }
+
+
+//REGEX MATCHING Binary
+preg_match_all('/\x nn/', $string, $output);
+
+//REGEX MATCHING HEXIDECIMAL
+preg_match_all('/\x nnnn/', $string, $output);
 ?>

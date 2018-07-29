@@ -32,13 +32,13 @@
 					</div>
 
 				</div>
-			</div>
 
-			<div class="row">
 				<div class="col-md-12">
+					
 					<?php include('text_box_form.php'); ?>
 
 				</div>
+
 			</div>
 		</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
