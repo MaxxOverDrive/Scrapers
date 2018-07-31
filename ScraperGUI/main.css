@@ -2,6 +2,10 @@
   list-style-type: none;
 }
 
+.finalResults {
+  text-align: center;
+}
+
 #new_url_form {
   margin-bottom: 2vh;
 }
@@ -11,5 +15,6 @@
 }
 
 #info_display_box {
-  height: 50vh;
+  min-height: 50vh;
+  border: 1px solid black;
 }

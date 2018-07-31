@@ -17,7 +17,7 @@
         <?php
           $db_table_Var = $GLOBALS['db_table_Result'];
         ?>
-
+         
         <div class="form-group">
           <div class="col-md-12 text-center">
             <h4 for="database_action_dropdown">Database Tables</h4>

@@ -27,12 +27,11 @@
           while (($line = fgets($db_info)) !== false) {
               $db_conn[] = trim($line);
           }
-
           fclose($db_info);
-      } else {
+      }
+      else {
           echo "Something Happened!";
       }
-
 
     $conn = mysqli_connect("$db_conn[0]", "$db_conn[1]", "$db_conn[2]", "$db_conn[3]");
 
@@ -44,6 +43,7 @@
         $db_table_Result = mysqli_query($conn, $db_table_SQL);
 
         if(mysqli_num_rows($db_table_Result) > 0) {
+          $final_result = "<h1 class='finalResults'>You are connected</h1>";
           $GLOBALS['db_table_Result'] = $db_table_Result;
         }
         else {

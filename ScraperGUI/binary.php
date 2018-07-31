@@ -58,4 +58,5 @@ preg_match_all('/\x nn/', $string, $output);
 
 //REGEX MATCHING HEXIDECIMAL
 preg_match_all('/\x nnnn/', $string, $output);
+
 ?>
