@@ -1,0 +1,72 @@
+.activeCards {
+
+}
+.table_seat {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 5%;
+}
+#poker_table {
+  width: 90%;
+  border: 1px solid black;
+  border-radius: 50%;
+  position: relative;
+  left: 5%;
+  background-color: #19ab39;
+}
+#active_card_box {
+  border: 1px solid black;
+  background-color: grey;
+  width: 80%;
+  height: 100px;
+  position: relative;
+  left: 10%;
+}
+#cardDealer {
+  margin-top: 50px;
+}
+#active_card_1 {
+
+}
+#active_card_2 {
+
+}
+#active_card_3 {
+
+}
+#active_card_4 {
+
+}
+#active_card_5 {
+
+}
+#seat_1 {
+
+}
+#seat_2 {
+
+}
+#seat_3 {
+
+}
+#seat_4 {
+
+}
+#seat_5 {
+
+}
+#seat_6 {
+
+}
+#seat_7 {
+
+}
+#seat_8 {
+
+}
+#seat_9 {
+
+}
+#dealer {
+
+}
