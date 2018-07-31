@@ -1,9 +1,20 @@
 <div class="col-md-12"><!--CENTER TOP CONTAINER BOX-->
 
-
   <div class="col-md-6">
-
       <form action="index.php" method="POST">
+        <div class="form-group">
+          <div class="col-md-12 text-center">
+            <h4 for="database_action_dropdown">Database Tables</h4>
+            <select class="form-control" id="database_action_dropdown"><!-- FIGUR OUT NAME, VALUE & ID -->
+              <?php
+                $db_table_Var = $GLOBALS['db_table_Result'];
+
+                while($db_table_Row = mysqli_fetch_array($db_table_Var)) { ?>
+                  <option><?php echo $db_table_Row[0]; ?></option>
+          <?php  }  ?>
+            </select>
+          </div>
+        </div>
 
         <div class="form-group">
           <div class="col-md-12 text-center">
@@ -14,35 +25,16 @@
           </div>
         </div>
 
-        <?php
-          $db_table_Var = $GLOBALS['db_table_Result'];
-        ?>
-         
-        <div class="form-group">
-          <div class="col-md-12 text-center">
-            <h4 for="database_action_dropdown">Database Tables</h4>
-            <select class="form-control" id="database_action_dropdown"><!-- FIGUR OUT NAME, VALUE & ID -->
-              <?php
-                while($db_table_Row = mysqli_fetch_assoc($db_table_Var)) { ?>
-                  <option><?php echo $db_table_Row[0]; ?></option>
-          <?php  }  ?>
-            </select>
-          </div>
-        </div>
-
         <div class="form-group">
           <div class="col-md-12 text-center">
             <button class="btn btn-success" type="submit" name="submitCompete">Submit</button>
           </div>
         </div>
-
       </form>
-
     </div>
 
 
     <div class="col-md-6">
-
       <form action="index.php" method="POST">
         <!--LIST OF FILE TYPES TO SAVE AS -->
         <div class="form-group">
@@ -65,7 +57,6 @@
           </div>
         </div>
       </form>
-
     </div>
 
 
