@@ -1,87 +1,7 @@
 
-<<<<<<< HEAD
   <div class="row">
     <div id="info_display_box" class="form-group col-md-12">
       <div name="displayInfo">
-=======
-<div id="match_list" class="col-md-12"><!--TABLE SEARCHES -->
-
-    <div class="col-md-3">
-      <form action="index.php" method="POST">
-
-        <!--LIST OF THINGS TO MATCH -->
-
-          <div class="col-md-12 text-center">
-            <h4 for="page_match">Match Contents</h4>
-            <select class="form-control" name="page_match">
-              <option>Select Match</option>
-              <option name="tables">Tables</option>
-              <option>Table_Rows</option>
-              <option>Table_Data</option>
-              <option name="divs">Dividers</option>
-              <option name="images">Images</option>
-              <option>Links</option>
-              <option>List_Items_Match</option>
-              <option>All</option>
-            </select>
-          </div>
-
-
-
-          <div class="col-md-12 text-center">
-            <button class="btn btn-success" type="submit" name="submit_page_match">Match</button>
-          </div>
-
-
-      </form>
-    </div>
-
-
-    <div class="col-md-6">
-        <form action="index.php" method="POST">
-          <!--CHANGE INPUT TO BINARY OR HEXDECIMAL -->
-            <div class="col-md-6 text-center">
-              <h4 for="decode_type">Decode Type</h4>
-              <select class="form-control" name="decode_type">
-                <option>Decode Type</option>
-                <option>Binary</option>
-                <option>Hexidecimal</option>
-              </select>
-            </div>
-            <div class="col-md-6 text-center">
-              <h4 for="decode_text">Decode String</h4>
-              <input class="form-control" type="text" name="decode_text">
-            </div>
-            <div class="col-md-6 text-center">
-              <button class="btn btn-success" type="submit" name="decode_text_submit">Decode</button>
-            </div>
-        </form>
-      </div>
-
-      <div class="col">
-        <form action="index.php" method="POST">
-          <!--CHANGE INPUT TO BINARY OR HEXDECIMAL -->
-            <div class="col-md-4 text-center">
-              <h4 for="encode_type">Encode Type</h4>
-              <select class="form-control" name="encode_type">
-                <option>Encode Type</option>
-                <option>Binary</option>
-                <option>Hexidecimal</option>
-              </select>
-            </div>
-            <div class="col-md-4 text-center">
-              <h4 for="bin_text">Encode String</h4>
-              <input class="form-control" type="text" name="encode_text">
-            </div>
-            <div class="col-md-4 text-center">
-              <button class="btn btn-success" type="submit" name="encode_text_submit">Encode</button>
-            </div>
-        </form>
-      </div>
-
-  <div class="row">
-
->>>>>>> 0fb77eb30d35f4bc211e001534b43b474fdbdb5c
         <?php
           error_reporting(E_ALL);
           ini_set('display_errors', '1');
@@ -199,4 +119,6 @@
             }
           ?>
 
+      </div><!-- DISPLAY INFO RESULTS -->
+    </div>
   </div>

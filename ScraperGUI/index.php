@@ -100,16 +100,11 @@ ini_set('max_execution_time', 300);
 										$final_result = "<h1 class='finalResults'>You are connected to ". preg_replace('/(.*)_/', '', $db_conn[3])."</h1>";
 										$GLOBALS['db_table_Result'] = $db_table_Result;
 										?>
-<<<<<<< HEAD
 											<div class="col-md-7"><!--NEW DATA FORMS-->
 														<?php
 												 			include('new_data_forms.php');
 															include('database_info_forms.php');
 														?>
-=======
-											<div class="col-md-4"><!--INFO DISPLAY BOX-->
-												<?php include('new_data_forms.php'); ?>
->>>>>>> 0fb77eb30d35f4bc211e001534b43b474fdbdb5c
 						<?php }
 									else {
 										 $final_result = "<h1 class='finalResults'>There are no tables in the database!</h1>";
@@ -119,12 +114,8 @@ ini_set('max_execution_time', 300);
 								mysqli_close($conn);
 						}
 						else {//ELSE db_conn_submit NOT SET
-<<<<<<< HEAD
 							?><div class="col-md-7"><!--INFO DISPLAY BOX--><?php
 							include('database_info_forms.php');
-=======
-							?><div class="col-md-4"><!--INFO DISPLAY BOX--><?php
->>>>>>> 0fb77eb30d35f4bc211e001534b43b474fdbdb5c
 						}
 					?>
 					</div><!--NEW DATA FORMS-->
@@ -133,11 +124,6 @@ ini_set('max_execution_time', 300);
 								<?php include('choose_websites_form.php'); ?>
 							</div>
 
-<<<<<<< HEAD
-=======
-						<div class="col-md-5">
-							<?php include('choose_websites_form.php'); ?>
->>>>>>> 0fb77eb30d35f4bc211e001534b43b474fdbdb5c
 						</div>
 
 					</div><!--END COL-md-12-->
