@@ -16,7 +16,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-12 text-center">
-      <button type="submit" class="btn btn-info" name="db_conn_submit">Connect</button>
+      <button type="submit" class="btn btn-primary" name="db_conn_submit">Connect</button>
     </div>
   </div>
 </form>
@@ -85,7 +85,7 @@
 
      <div class="form-group">
        <div class="col-sm-12 text-center">
-         <button type="submit" class="btn btn-info" name="new_db_submit">Connect</button>
+         <button type="submit" class="btn btn-primary" name="new_db_submit">Connect</button>
        </div>
      </div>
    </form>

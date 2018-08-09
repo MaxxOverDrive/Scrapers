@@ -1,9 +1,9 @@
-<div class="col-md-12"><!--CENTER TOP CONTAINER BOX-->
+<div class="col-md-12 text-center"><!--CENTER TOP CONTAINER BOX-->
+  <div class="row">
 
-  <div class="col-md-6">
+    <div class="col-md-6">
       <form action="index.php" method="POST">
         <div class="form-group">
-          <div class="col-md-12 text-center">
             <h4 for="database_action_dropdown">Database Tables</h4>
             <select class="form-control" id="database_action_dropdown"><!-- FIGUR OUT NAME, VALUE & ID -->
               <?php
@@ -13,22 +13,17 @@
                   <option><?php echo $db_table_Row[0]; ?></option>
           <?php  }  ?>
             </select>
-          </div>
         </div>
 
-        <div class="form-group">
-          <div class="col-md-12 text-center">
+        <div style="position: relative; top: 8vh;" class="form-group">
             <h4>Database Actions</h4>
             <!--DABATASE ACTIONS -->
             <label class="radio-inline"><input type="radio" name="db_action" value="send_data">Send</label>
             <label class="radio-inline"><input type="radio" name="db_action" value="get_data">Receive</label>
-          </div>
         </div>
 
-        <div class="form-group">
-          <div class="col-md-12 text-center">
+        <div style="position: relative; top: 7vh;" class="form-group">
             <button class="btn btn-success" type="submit" name="submitCompete">Submit</button>
-          </div>
         </div>
       </form>
     </div>
@@ -38,7 +33,6 @@
       <form action="index.php" method="POST">
         <!--LIST OF FILE TYPES TO SAVE AS -->
         <div class="form-group">
-          <div class="col-md-12 text-center">
             <h4 for="file_type">Save Contents</h4>
             <select class="form-control" name="file_type">
               <option>Select File Type</option>
@@ -48,17 +42,23 @@
               <option>EXCEL</option>
               <option>DOXC</option>
             </select>
-          </div>
         </div>
-
-        <div class="form-group">
-          <div class="col-md-12 text-center">
+        <div style="margin-top: -2%;" class="form-group">
             <button class="btn btn-success" type="submit" name="submitFileType">Save</button>
-          </div>
+        </div>
+      </form>
+
+      <form style="position: relative; top: 2vh;" action="index.php" method="post">
+        <div class="form-group">
+          <h4 for="upload_file">Upload File</h4>
+          <input type="file" name="upload_file">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-dark" type="submit" name="submit_upload_file">Upload</button>
         </div>
       </form>
     </div>
-
+  </div>
 
 </div><!--CENTER TOP CONTAINER BOX-->
 

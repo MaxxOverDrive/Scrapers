@@ -10,6 +10,7 @@ ini_set('max_execution_time', 300);
 	<meta charset="utf-8">
 	<title>Scraper GUI!</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
@@ -20,7 +21,7 @@ ini_set('max_execution_time', 300);
 
       <div class="row">
 	       <div class="col-md-3">
-						<div class="col-md-12">
+						<div class="col-md-12 text-center">
 						  <!--LIST OF DATABASES-->
 						  <h4>Connect to Database</h4>
 						</div>
@@ -33,12 +34,12 @@ ini_set('max_execution_time', 300);
 							        <li class="infoList"><label><input class="form-check-input" type="radio" name="database_list" value="db_num3">CMS</label></li>
 							      </ul>
 							</div>
-					    <div class="col-md-12">
+					    <div style="margin: -5% 0 3% 0;" class="col-md-12 text-center">
 									<button type="submit" class="btn btn-info" name="db_conn_submit">Connect</button>
 					    </div>
 					</form>
 
-					<div class="col">
+					<div class="col text-center">
 						<h4>Connect New Database</h4>
 						<form id="db_connect_form" class="form-horizontal" action="index.php" method="POST">
 							<div class="form-group">
@@ -70,6 +71,9 @@ ini_set('max_execution_time', 300);
 					</div><!--col-12 FORM WRAPPER-->
 				</div><!--col-3 wrapper-->
 
+				<div class="col-md-9" style="margin-top: 1%;">
+					<div class="col-md-12">
+						<div class="row">
 					<?php
 						if(isset($_POST['db_conn_submit'])) {
 							$db_info = fopen("Databases/db_num1.csv", "r");
@@ -93,34 +97,42 @@ ini_set('max_execution_time', 300);
 									$db_table_Result = mysqli_query($conn, $db_table_SQL);
 
 									if(mysqli_num_rows($db_table_Result) > 0) {
-										$final_result = "<h1 class='finalResults'>You are connected to ".$db_conn[3]."</h1>";
+										$final_result = "<h1 class='finalResults'>You are connected to ". preg_replace('/(.*)_/', '', $db_conn[3])."</h1>";
 										$GLOBALS['db_table_Result'] = $db_table_Result;
 										?>
-											<div class="col-md-5"><!--INFO DISPLAY BOX-->
-												<?php include('new_data_forms.php'); ?>
+											<div class="col-md-7"><!--NEW DATA FORMS-->
+														<?php
+												 			include('new_data_forms.php');
+															include('database_info_forms.php');
+														?>
 						<?php }
 									else {
 										 $final_result = "<h1 class='finalResults'>There are no tables in the database!</h1>";
 									}
+
 								}
 								mysqli_close($conn);
 						}
 						else {//ELSE db_conn_submit NOT SET
-							?><div class="col-md-5"><!--INFO DISPLAY BOX--><?php
+							?><div class="col-md-7"><!--INFO DISPLAY BOX--><?php
+							include('database_info_forms.php');
 						}
 					?>
+					</div><!--NEW DATA FORMS-->
 
-						</div><!--INFO DISPLAY BOX-->
+							<div class="col-md-5">
+								<?php include('choose_websites_form.php'); ?>
+							</div>
 
-						<div class="col-md-4">
-							<?php include('choose_websites_form.php'); ?>
 						</div>
 
-					</div><!--END COL-12 PAGE WRAPPER-->
+					</div><!--END COL-md-12-->
+				</div><!--END COL-md-9 box wrap-->
+			</div><!--END COL-12 PAGE WRAPPER-->
 
-					<div class="col-md-12">
-						<?php include('text_box_form.php'); ?>
-					</div>
+				<div class="col-md-12">
+					<?php include('text_box_form.php'); ?>
+				</div>
 
 			</div>
 		</div>

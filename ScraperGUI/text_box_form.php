@@ -1,105 +1,7 @@
 
-<div id="match_list" class="col-md-12"><!--TABLE SEARCHES -->
-
-    <div class="col-md-3 col-md-offset-3">
-      <form action="index.php" method="POST">
-
-        <!--LIST OF THINGS TO MATCH -->
-        <div class="form-group">
-          <div class="col-md-12 text-center">
-            <h4 for="page_match">Match Contents</h4>
-            <select class="form-control" name="page_match">
-              <option>Select Match</option>
-              <option name="tables">Tables</option>
-              <option>Table_Rows</option>
-              <option>Table_Data</option>
-              <option name="divs">Dividers</option>
-              <option name="images">Images</option>
-              <option>Links</option>
-              <option>List_Items_Match</option>
-              <option>All</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-md-12 text-center">
-            <button class="btn btn-success" type="submit" name="submit_page_match">Match</button>
-          </div>
-        </div>
-
-      </form>
-    </div>
-
-
-    <div class="col-md-6">
-      <div class="col-md-6">
-        <form action="index.php" method="POST">
-          <!--CHANGE INPUT TO BINARY OR HEXDECIMAL -->
-          <div class="form-group">
-            <div class="col-md-12 text-center">
-              <h4 for="decode_type">Decode Type</h4>
-              <select class="form-control" name="decode_type">
-                <option>Decode Type</option>
-                <option>Binary</option>
-                <option>Hexidecimal</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-md-12 text-center">
-              <h4 for="decode_text">Decode String</h4>
-              <input class="form-control" type="text" name="decode_text">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-md-12 text-center">
-              <button class="btn btn-success" type="submit" name="decode_text_submit">Decode</button>
-            </div>
-          </div>
-
-        </form>
-      </div>
-
-      <div class="col-md-6">
-        <form action="index.php" method="POST">
-          <!--CHANGE INPUT TO BINARY OR HEXDECIMAL -->
-          <div class="form-group">
-            <div class="col-md-12 text-center">
-              <h4 for="encode_type">Encode Type</h4>
-              <select class="form-control" name="encode_type">
-                <option>Encode Type</option>
-                <option>Binary</option>
-                <option>Hexidecimal</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-md-12 text-center">
-              <h4 for="bin_text">Encode String</h4>
-              <input class="form-control" type="text" name="encode_text">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-md-12 text-center">
-              <button class="btn btn-success" type="submit" name="encode_text_submit">Encode</button>
-            </div>
-          </div>
-
-        </form>
-      </div>
-
-    </div>
-
-</div>
-
   <div class="row">
-    <div class="form-group col-md-12">
-      <div id="info_display_box" name="displayInfo">
+    <div id="info_display_box" class="form-group col-md-12">
+      <div name="displayInfo">
         <?php
           error_reporting(E_ALL);
           ini_set('display_errors', '1');
@@ -124,13 +26,50 @@
             }
           }//END OF ISSET POST NEW DB SUBMIT
 
-          if(isset($_POST['submitURL'])) {
+          //$scrape_url_array = array();
+          if(isset($_POST['submit_user_search'])) {
+            //array_push($scrape_url_array, $_POST['url']);
             $scrape_url = $_POST['url'];
+            $user_search = $_POST['user_search'];
             if(empty($scrape_url)) {
-              $final_result = "<h1 class='finalResults'>You didn't select any URLs!</h1>";
+              $final_result = "<h1 class='finalResults'>You didn't select any URL's!</h1>";
             }
             else {
-              echo curl_page();
+
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $scrape_url.$user_search);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                $result = curl_exec($ch);
+
+                if(strpos($scrape_url, "custommhs")) {
+                  preg_match_all('/<div class="smallBoxBg.*?>([\s\S]*?)<\/div>/', $result, $custommhs_matches);
+
+                  foreach($custommhs_matches[1] as $custommhs_match) {
+                    if(preg_match_all('/<span.*?>([\s\S]*?)<\/span>/', $custommhs_match, $custommhs_items)) {
+                      foreach($custommhs_items[1] as $custommhs_item) {
+                        echo trim($custommhs_item);
+                      }
+                    }
+                  }
+                }
+                elseif(strpos($scrape_url, "sodyinc")) {
+                  preg_match_all('/<div class="centerBoxWrapperContents[^>]*>([\s\S]*?)<div id="productsListingBottomNumber"[^>]*>/', $result, $sodyinc_matches);
+
+                  foreach($sodyinc_matches[1] as $sodyinc_match) {
+                    if(preg_match_all('/(.*)<\/td>/', $sodyinc_match, $sodyinc_item_matches)) {
+                      foreach($sodyinc_item_matches[1] as $sodyinc_items) {
+                        if(preg_match('/<div class="listingDescription[^>]*>(.*)<form name="[^>]*>/', $sodyinc_items, $sodyinc_items2)) {
+                          $final_result = preg_replace('/(.*?)Model:/', '', $sodyinc_items2[1]);
+                        }
+                      }
+                    }
+                  }
+                }
+                elseif(strpos($scrape_url, "globalindustrial")) {
+                  echo "SHOW ME YOUR TITTIES";
+                }
+                curl_close($ch);
             }//END OF ELSE URL IS NOT EMPTY
           }//END OF ISSET POST submitURL
 
