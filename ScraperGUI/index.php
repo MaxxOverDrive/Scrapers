@@ -20,56 +20,8 @@ ini_set('max_execution_time', 300);
     <div class="container">
 
       <div class="row">
-	       <div class="col-md-3">
-						<div class="col-md-12 text-center">
-						  <!--LIST OF DATABASES-->
-						  <h4>Connect to Database</h4>
-						</div>
-
-						<form action="index.php" method="POST">
-							<div class="col-md-12">
-							      <ul>
-							        <li class="infoList"><label><input class="form-check-input" type="radio" name="database_list" value="db_num1">ScraperGUI</label></li>
-							        <li class="infoList"><label><input class="form-check-input" type="radio" name="database_list" value="db_num2">MattysBins</label></li>
-							        <li class="infoList"><label><input class="form-check-input" type="radio" name="database_list" value="db_num3">CMS</label></li>
-							      </ul>
-							</div>
-					    <div style="margin: -5% 0 3% 0;" class="col-md-12 text-center">
-									<button type="submit" class="btn btn-info" name="db_conn_submit">Connect</button>
-					    </div>
-					</form>
-
-					<div class="col text-center">
-						<h4>Connect New Database</h4>
-						<form id="db_connect_form" class="form-horizontal" action="index.php" method="POST">
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input type="text" class="form-control" name="db_host" placeholder="Enter database host">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input type="text" class="form-control" name="db_username" placeholder="Enter username">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input type="password" class="form-control" name="db_pass" placeholder="Enter password">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input type="text" class="form-control" name="db_name" placeholder="Enter database name">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12 text-center">
-									<button type="submit" class="btn btn-info" name="new_db_submit">Connect</button>
-								</div>
-							</div>
-						</form>
-					</div><!--col-12 FORM WRAPPER-->
-				</div><!--col-3 wrapper-->
+				
+	       <?php include('new_db_conn_form.php'); ?>
 
 				<div class="col-md-9" style="margin-top: 1%;">
 					<div class="col-md-12">

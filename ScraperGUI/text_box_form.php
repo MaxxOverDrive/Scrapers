@@ -5,7 +5,6 @@
         <?php
           error_reporting(E_ALL);
           ini_set('display_errors', '1');
-          include('functions.php');
 
           if(isset($_POST["new_db_submit"])) {
             $db_host = $_POST['db_host'];
