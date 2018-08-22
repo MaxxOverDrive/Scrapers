@@ -3,10 +3,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-$db_host = "108.167.172.156";
-$db_username = "maxxsecu_Max";
-$db_pass = "Sealteam7$";
-$db_name = "maxxsecu_cmsNew";
 
 $conn = mysqli_connect("$db_host", "$db_username", "$db_pass", "$db_name");
 

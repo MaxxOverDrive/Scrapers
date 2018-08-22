@@ -1,3 +1,7 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,7 @@
 
 				<a href="imacros://run/?m=model.iim">Run macro</a>
 
-				<?php //include('imacros3.php'); ?>
+				<?php  //include('imacros3.php'); ?>
 				<?php //include('imacros2.php'); ?>
 				<?php //include('imacros1.php'); ?>
 

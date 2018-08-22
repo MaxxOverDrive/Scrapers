@@ -20,7 +20,7 @@ ini_set('max_execution_time', 300);
     <div class="container">
 
       <div class="row">
-				
+
 	       <?php include('new_db_conn_form.php'); ?>
 
 				<div class="col-md-9" style="margin-top: 1%;">
@@ -54,11 +54,12 @@ ini_set('max_execution_time', 300);
 										?>
 											<div class="col-md-7"><!--NEW DATA FORMS-->
 														<?php
+															include('choose_layout.php');
 												 			include('new_data_forms.php');
-															include('database_info_forms.php');
 														?>
 						<?php }
 									else {
+										 include('choose_layout.php');
 										 $final_result = "<h1 class='finalResults'>There are no tables in the database!</h1>";
 									}
 
@@ -67,8 +68,25 @@ ini_set('max_execution_time', 300);
 						}
 						else {//ELSE db_conn_submit NOT SET
 							?><div class="col-md-7"><!--INFO DISPLAY BOX--><?php
-							include('database_info_forms.php');
+							include('choose_layout.php');
 						}
+
+						if(isset($_POST['choose_layout'])) {
+							if($_POST['choose_layout'] == 'encryption') {
+								include('decode_forms.php');
+							}
+							elseif($_POST['choose_layout'] == 'hunt') {
+								include('hunt_form.php');
+							}
+						}
+					?>
+					<?php
+					  if(isset($_POST['choose_hunt'])) {
+					    if($_POST['choose_hunt'] == 'craigslist') {
+					      include('Craigslist/craigslistParser2.php');
+					      include('Craigslist/craigslist_forms.php');
+					    }
+					  }
 					?>
 					</div><!--NEW DATA FORMS-->
 

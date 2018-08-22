@@ -113,6 +113,15 @@
               }
             }//END OF ISSET ENCODE_TEXT SUBMIT
 
+
+              if(isset($_POST['submit_craigslist_hunt'])) {
+                include('CraigsList/craigslistParser.php');
+                for($i = 0; $i < COUNT($city); $i++) {
+                  echo $city[$i] . "<br>";
+                }
+              }//END IF ISSET CRAIGSLIST PARSER
+
+
             if(isset($final_result)) {
               echo $final_result;
             }

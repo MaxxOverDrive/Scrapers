@@ -1,0 +1,17 @@
+' your csv file has to be in the imacros datasources folder
+SET !DATASOURCE URL.csv
+' set loop is what row you want the macros to start from
+SET !LOOP 125
+' datasource_columns is how many colums does your csv have
+SET !DATASOURCE_COLUMNS 6
+'keep this like this, trust me
+set !var1 1
+add !var1 {{!loop}}
+SET !DATASOURCE_LINE {{!var1}}
+TAB T=1
+' change {{!col2}} to what every number your url is in, so if its in colum 4 it will be {{!col4}}
+URL GOTO={{!col2}}
+
+{DO TASK}
+
+PAUSE (note if you pause it wont restart unless you hit continue. If you need it to wait some time just Put WAIT SECONDS=XX
