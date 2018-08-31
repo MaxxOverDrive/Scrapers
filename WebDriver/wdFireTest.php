@@ -2,7 +2,7 @@
 
 // you'll need to modify this path so it points to the composer autoloader
     //require_once __DIR__ . '/vendor/autoload.php';
-    require_once "phpwebdriver/WebDriver.php";
+
 
     /**
      * since I'm running the selenium jar locally, this is all I need.
@@ -22,7 +22,7 @@
 
 */
 
-
+require_once "phpwebdriver/WebDriver.php";
 $webdriver = new WebDriver("localhost", "4444");
 $webdriver->connect("firefox");
 $webdriver->get("http://google.com");
