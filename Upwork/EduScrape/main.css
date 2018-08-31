@@ -1,0 +1,14 @@
+.tableHeader {
+  font-size: 80%;
+}
+.tableHeaderData {
+  border: 1px solid black;
+}
+.tableRow {
+  font-size: 65%;
+  font-family: fantasy;
+}
+
+.tableData {
+  border: 1px solid black;
+}
