@@ -15,12 +15,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-
+/*
 require_once "phpwebdriver/WebDriver.php";
 
 $webdriver = new WebDriver("localhost", 4444);
 $ffprofile = $webdriver->prepareBrowserProfile("pathToYourFFProfileDirectory");
-$webdriver->connect("firefox","15",array('firefox_profile' => $ffprofile));                            
+$webdriver->connect("firefox","15",array('firefox_profile' => $ffprofile));
 $webdriver->get("http://google.com");
 $element = $webdriver->findElementBy(LocatorStrategy::name, "q");
 if ($element) {
@@ -28,4 +28,15 @@ if ($element) {
     $element->submit();
 }
 $webdriver->close();
+*/
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+$session->element('id', 'element_id');
+
+$webdriver = new WebDriver();
+    $session = $webdriver->session('firefox', array());
+    $session->open('http://www.google.com');
+    $textbox = $session->element('name', 'q');
+    $textbox->value('h');
 ?>
